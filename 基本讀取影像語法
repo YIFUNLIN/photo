@@ -15,3 +15,18 @@ print(picture.format)   #format可獲得檔案影像格式，他的副檔名
 print(picture.format_description)   #更清楚的檔案格式描述
 
 # picture.save('boo.png')   #儲存檔案，也可以將影像轉檔
+
+
+#更改影像大小 
+new1 = picture.resize((width* 2,height))   # resize((width,height))可調整影像大小
+picture.rotate(90,expand=True).show()     #rotate()可以逆時針旋轉影像
+picture.transpose(Image.FLIP_TOP_BOTTOM).show()  # transpose()可讓影像翻轉
+
+newImage = Image.new("RGBA",(300,300),"Yellow") #使用new()建立新的影像物件 , new(mode, size,color)
+for x in range(50, 251):   #x軸在50~150
+    for y in range(50,151):
+        newImage.putpixel((x,y),(0,255,255,255))    #填入青色
+for x in range(50,251):
+    for y in range(151,251):
+        newImage.putpixel((x,y),ImageColor.getcolor('Blue',"RGBA"))   
+plt.imshow(newImage)
