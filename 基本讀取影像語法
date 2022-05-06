@@ -1,0 +1,17 @@
+from PIL import ImageColor
+from PIL import Image
+
+print(ImageColor.getrgb('blue'))      #使用getrgb()可傳回色彩的元組
+print(ImageColor.getcolor('blue','RGBA'))   #返回色彩元組  (color,'mode')
+
+picture = Image.open('C:/Users/linnn/Desktop/oo.jpg')   #使用絕對路徑比較能夠成功讀取
+width, height  = picture.size  #獲得影像的寬、高
+print('寬度:',width)
+print('高度:',height)
+print('檔名',picture.filename)  #列出檔案名
+#picture.show()        #顯示圖片
+
+print(picture.format)   #format可獲得檔案影像格式，他的副檔名
+print(picture.format_description)   #更清楚的檔案格式描述
+
+# picture.save('boo.png')   #儲存檔案，也可以將影像轉檔
